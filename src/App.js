@@ -12,9 +12,6 @@ import { auth } from './firebase';
 function App() {
   const [{user}, dispatch] = useStateValue();
 
-  // useEffect <<<<<<< POWERFUL
-  // Piece of code which runs based on a given condition
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
         if (authUser) {
@@ -33,7 +30,6 @@ function App() {
     });
 
     return () => {
-        // Any cleanup operations go in here...
         unsubscribe();
     }
   },[])
